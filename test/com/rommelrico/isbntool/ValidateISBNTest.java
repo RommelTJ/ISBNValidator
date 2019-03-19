@@ -8,7 +8,7 @@ class ValidateISBNTest {
 
     @Test
     public void test() {
-        fail("Not yet implemented");
+        // TODO: Write a test.
     }
 
 }
