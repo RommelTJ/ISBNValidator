@@ -10,6 +10,8 @@ Rules of TDD:
  -> Valid ISBN, Invalid ISBN
 2. Don't pre-judge design... let your tests drive it.
  -> Don't assume ISBNs have to be Strings.
+3. Write the minimum code required to get your tests to pass.
+ -> Make method to always return true.
  */
 class ValidateISBNTest {
 
