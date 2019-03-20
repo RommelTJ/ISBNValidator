@@ -12,8 +12,8 @@ Rules of TDD:
 class ValidateISBNTest {
 
     @Test
-    public void test() {
-        // TODO: Write a test.
+    public void checkValidISBN() {
+        fail();
     }
 
 }
