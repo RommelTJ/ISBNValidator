@@ -17,20 +17,20 @@ Rules of TDD:
 class ValidateISBNTest {
 
     @Test
-    public void checkValidISBN() {
+    void checkValidISBN() {
         ValidateISBN validator = new ValidateISBN();
 
-        boolean result = validator.checkISBN(140449116);
+        boolean result = validator.checkISBN("0140449116");
         assertTrue(result, "first value");
 
-        result = validator.checkISBN(140177396);
+        result = validator.checkISBN("0140177396");
         assertTrue(result, "second value");
     }
 
     @Test
-    public void checkInvalidISBN() {
+    void checkInvalidISBN() {
         ValidateISBN validator = new ValidateISBN();
-        boolean result = validator.checkISBN(150449116);
+        boolean result = validator.checkISBN("0150449116");
         assertFalse(result);
     }
 

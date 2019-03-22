@@ -1,9 +1,9 @@
 package com.rommelrico.isbntool;
 
-public class ValidateISBN {
+class ValidateISBN {
 
-    public boolean checkISBN(int ISBN) {
-        return ISBN == 140449116;
+    boolean checkISBN(String ISBN) {
+        return ISBN.equals("0140449116");
     }
 
 }
