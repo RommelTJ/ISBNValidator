@@ -48,6 +48,9 @@ class ValidateISBNTest {
         assertThrows(NumberFormatException.class, () -> validator.checkISBN("helloworld"));
     }
 
-
+    @Test
+    void checkValidISBNWithXAreValid() {
+        fail();
+    }
 
 }
