@@ -2,6 +2,8 @@ package com.rommelrico.isbntool;
 
 import org.junit.jupiter.api.Test;
 
+import java.text.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
@@ -36,7 +38,8 @@ class ValidateISBNTest {
 
     @Test
     void nineDigitISBNSNotAllow() {
-        fail();
+        ValidateISBN validator = new ValidateISBN();
+        assertThrows(NumberFormatException.class, () -> validator.checkISBN("123456789"));
     }
 
 }
