@@ -34,4 +34,9 @@ class ValidateISBNTest {
         assertFalse(result);
     }
 
+    @Test
+    void nineDigitISBNSNotAllow() {
+        fail();
+    }
+
 }
