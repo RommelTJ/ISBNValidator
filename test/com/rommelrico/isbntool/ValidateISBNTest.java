@@ -50,7 +50,9 @@ class ValidateISBNTest {
 
     @Test
     void checkValidISBNWithXAreValid() {
-        fail();
+        ValidateISBN validator = new ValidateISBN();
+        boolean result = validator.checkISBN("012000030X");
+        assertTrue(result, "ISBN with an X");
     }
 
 }
