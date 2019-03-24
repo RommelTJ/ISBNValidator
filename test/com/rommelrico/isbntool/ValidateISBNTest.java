@@ -42,4 +42,10 @@ class ValidateISBNTest {
         assertThrows(NumberFormatException.class, () -> validator.checkISBN("123456789"));
     }
 
+    @Test
+    void wordsNotAllowed() {
+        ValidateISBN validator = new ValidateISBN();
+        assertThrows(NumberFormatException.class, () -> validator.checkISBN("helloworld"));
+    }
+
 }
