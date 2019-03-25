@@ -31,7 +31,18 @@ class ValidateISBN {
     }
 
     private boolean validate13CharISBN(String ISBN) {
-        return true;
+        int total = 0;
+        for (int i = 0; i < 13; i++) {
+            if (i % 2 == 0) {
+                // Even
+                total += Character.getNumericValue(ISBN.charAt(i));
+            } else {
+                // Odd
+                total += Character.getNumericValue(ISBN.charAt(i)) * 3;
+            }
+        }
+
+        return total % 10 == 0;
     }
 
 }
