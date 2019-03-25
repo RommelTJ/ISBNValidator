@@ -65,4 +65,11 @@ class ValidateISBNTest {
         assertTrue(result, "second value");
     }
 
+    @Test
+    void checkInvalid13DigitISBNNumber() {
+        ValidateISBN validator = new ValidateISBN();
+        boolean result = validator.checkISBN("1234567891234");
+        assertFalse(result);
+    }
+
 }
