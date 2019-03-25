@@ -30,7 +30,7 @@ class ValidateISBNTest {
     }
 
     @Test
-    void checkInvalidISBN() {
+    void checkInvalid10DigitISBN() {
         ValidateISBN validator = new ValidateISBN();
         boolean result = validator.checkISBN("0150449116");
         assertFalse(result);
