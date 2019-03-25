@@ -59,7 +59,10 @@ class ValidateISBNTest {
     void checkValid13DigitISBNNumber() {
         ValidateISBN validator = new ValidateISBN();
         boolean result = validator.checkISBN("9780140177398");
-        assertTrue(result);
+        assertTrue(result, "first value");
+
+        result = validator.checkISBN("9781853260087");
+        assertTrue(result, "second value");
     }
 
 }
