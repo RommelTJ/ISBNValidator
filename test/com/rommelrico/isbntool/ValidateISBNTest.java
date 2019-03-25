@@ -19,7 +19,7 @@ Rules of TDD:
 class ValidateISBNTest {
 
     @Test
-    void checkValidISBN() {
+    void checkValid10DigitISBN() {
         ValidateISBN validator = new ValidateISBN();
 
         boolean result = validator.checkISBN("0140449116");
