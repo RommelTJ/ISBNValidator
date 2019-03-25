@@ -55,4 +55,9 @@ class ValidateISBNTest {
         assertTrue(result, "ISBN with an X");
     }
 
+    @Test
+    void checkValid13DigitISBNNumber() {
+        fail();
+    }
+
 }
