@@ -7,8 +7,10 @@ class ValidateISBN {
         if (ISBN.matches(".*[a-zA-Z&&[^xX]]+.*")) throw new NumberFormatException("Invalid Number Format");
 
         int total = 0;
-
         for (int i = 0; i < 10; i++) {
+            if (i == 9 && !Character.isDigit(ISBN.charAt(i)) && ISBN.charAt(i) != 'X')
+                throw new NumberFormatException("Invalid Number Format");
+
             total += ISBN.charAt(i) * (10 - i);
         }
 
