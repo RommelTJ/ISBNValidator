@@ -33,6 +33,8 @@ class ValidateISBN {
     }
 
     private boolean validateLongISBN(String ISBN) {
+        if (ISBN.matches(".*[xX]+.*")) throw new NumberFormatException("Invalid ISBN Format");
+
         int total = 0;
         for (int i = 0; i < LONG_ISBN_LENGTH; i++) {
             // Even
