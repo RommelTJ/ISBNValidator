@@ -19,7 +19,7 @@ Rules of TDD:
 class ValidateISBNTest {
 
     @Test
-    void checkValid10DigitISBN() {
+    void checkValidShortISBN() {
         ValidateISBN validator = new ValidateISBN();
 
         boolean result = validator.checkISBN("0140449116");
@@ -30,7 +30,7 @@ class ValidateISBNTest {
     }
 
     @Test
-    void checkInvalid10DigitISBN() {
+    void checkInvalidShortISBN() {
         ValidateISBN validator = new ValidateISBN();
         boolean result = validator.checkISBN("0150449116");
         assertFalse(result);
@@ -49,14 +49,14 @@ class ValidateISBNTest {
     }
 
     @Test
-    void checkValid10DigitISBNWithXAreValid() {
+    void checkValidShortISBNWithXAreValid() {
         ValidateISBN validator = new ValidateISBN();
         boolean result = validator.checkISBN("012000030X");
         assertTrue(result, "ISBN with an X");
     }
 
     @Test
-    void checkValid13DigitISBNNumber() {
+    void checkValidLongISBNNumber() {
         ValidateISBN validator = new ValidateISBN();
         boolean result = validator.checkISBN("9780140177398");
         assertTrue(result, "first value");
@@ -66,7 +66,7 @@ class ValidateISBNTest {
     }
 
     @Test
-    void checkInvalid13DigitISBNNumber() {
+    void checkInvalidLongISBNNumber() {
         ValidateISBN validator = new ValidateISBN();
         boolean result = validator.checkISBN("1234567891234");
         assertFalse(result);
