@@ -3,7 +3,9 @@ package com.rommelrico.isbntool;
 class ValidateISBN {
 
     public static final int SHORT_ISBN_LENGTH = 10;
+    public static final int LONG_ISBN_MULTIPLIER = 10;
     public static final int LONG_ISBN_LENGTH = 13;
+    public static final int SHORT_ISBN_MULTIPLIER = 11;
 
     boolean checkISBN(String ISBN) {
         if (ISBN.length() != SHORT_ISBN_LENGTH && ISBN.length() != LONG_ISBN_LENGTH) throw new NumberFormatException("ISBN Numbers must be 10 or 13 characters.");
@@ -30,7 +32,7 @@ class ValidateISBN {
             total += value * (SHORT_ISBN_LENGTH - i);
         }
 
-        return total % 11 == 0;
+        return total % SHORT_ISBN_MULTIPLIER == 0;
     }
 
     private boolean validate13CharISBN(String ISBN) {
@@ -45,7 +47,7 @@ class ValidateISBN {
             }
         }
 
-        return total % SHORT_ISBN_LENGTH == 0;
+        return total % LONG_ISBN_MULTIPLIER == 0;
     }
 
 }
