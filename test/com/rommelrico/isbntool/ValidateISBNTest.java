@@ -72,4 +72,9 @@ class ValidateISBNTest {
         assertFalse(result);
     }
 
+    @Test
+    void checkInvalidLongISBNNumberWithX() {
+        ValidateISBN validator = new ValidateISBN();
+        assertThrows(NumberFormatException.class, () -> validator.checkISBN("123456789123X"));
+    }
 }
