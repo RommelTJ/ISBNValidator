@@ -18,6 +18,15 @@ Practicing TDD with an ISBN Validator.
 * Are there any edge cases?
 * Are there any error conditions?
 
+### JUnit Asserts
+
+* assertEquals
+* assertNotEquals
+* assertNull
+* assertNotNull
+* assertThat(actual, Matcher) // e.g. assertThat(email, StringContains.containsString("@"));
+* fail
+
 ## Contributing
 
 If you wish to contribute to this repo, please read the [Contributing document](.github/CONTRIBUTING.md).
