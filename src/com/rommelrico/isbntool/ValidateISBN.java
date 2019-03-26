@@ -12,11 +12,8 @@ class ValidateISBN {
         if (ISBN.matches(".*[a-zA-Z&&[^xX]]+.*")) throw new NumberFormatException("Invalid ISBN Format");
 
         String upperISBN = ISBN.toUpperCase();
-        if (ISBN.length() == SHORT_ISBN_LENGTH) {
-            return validate10CharISBN(upperISBN);
-        } else {
-            return validate13CharISBN(upperISBN);
-        }
+        if (ISBN.length() == SHORT_ISBN_LENGTH) return validate10CharISBN(upperISBN);
+        else return validate13CharISBN(upperISBN);
     }
 
     private boolean validate10CharISBN(String ISBN) {
@@ -38,13 +35,10 @@ class ValidateISBN {
     private boolean validate13CharISBN(String ISBN) {
         int total = 0;
         for (int i = 0; i < LONG_ISBN_LENGTH; i++) {
-            if (i % 2 == 0) {
-                // Even
-                total += Character.getNumericValue(ISBN.charAt(i));
-            } else {
-                // Odd
-                total += Character.getNumericValue(ISBN.charAt(i)) * 3;
-            }
+            // Even
+            if (i % 2 == 0) total += Character.getNumericValue(ISBN.charAt(i));
+            // Odd
+            else total += Character.getNumericValue(ISBN.charAt(i)) * 3;
         }
 
         return total % LONG_ISBN_MULTIPLIER == 0;
