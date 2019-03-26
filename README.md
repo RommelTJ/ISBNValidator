@@ -11,6 +11,13 @@ Practicing TDD with an ISBN Validator.
 * Tests must be repeatable, and consistent
 * Tests must be thorough
 
+### What tests should I write?
+
+* What should the logic be?
+* What is the opposite to that logic?
+* Are there any edge cases?
+* Are there any error conditions?
+
 ## Contributing
 
 If you wish to contribute to this repo, please read the [Contributing document](.github/CONTRIBUTING.md).
