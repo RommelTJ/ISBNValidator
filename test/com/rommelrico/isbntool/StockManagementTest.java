@@ -7,6 +7,13 @@ class StockManagementTest {
 
     @Test
     void testCanGetCorrectLocatorCode() {
+        ExternalISBNDataService testService = new ExternalISBNDataService() {
+            @Override
+            public Book lookup(String ISBN) {
+                return new Book(ISBN, "Of Mice And Men", "John Steinbeck");
+            }
+        };
+
         String ISBN = "0140177396"; // Of Mice and Men
         StockManager stockManager = new StockManager();
         String locatorCode = stockManager.getLocatorCode(ISBN);
