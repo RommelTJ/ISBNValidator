@@ -15,7 +15,7 @@ class StockManagementTest {
         };
 
         StockManager stockManager = new StockManager();
-        stockManager.setService(testService);
+        stockManager.setWebService(testService);
 
         String ISBN = "0140177396"; // Of Mice and Men
         String locatorCode = stockManager.getLocatorCode(ISBN);
