@@ -7,19 +7,8 @@ class StockManagementTest {
 
     @Test
     void testCanGetCorrectLocatorCode() {
-        ExternalISBNDataService testWebService = new ExternalISBNDataService() {
-            @Override
-            public Book lookup(String ISBN) {
-                return new Book(ISBN, "Of Mice And Men", "John Steinbeck");
-            }
-        };
-
-        ExternalISBNDataService testDBService = new ExternalISBNDataService() {
-            @Override
-            public Book lookup(String ISBN) {
-                return null;
-            }
-        };
+        ExternalISBNDataService testWebService = ISBN -> new Book(ISBN, "Of Mice And Men", "John Steinbeck");
+        ExternalISBNDataService testDBService = ISBN -> null;
 
         StockManager stockManager = new StockManager();
         stockManager.setWebService(testWebService);
