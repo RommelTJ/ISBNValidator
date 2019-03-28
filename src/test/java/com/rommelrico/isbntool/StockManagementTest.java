@@ -35,10 +35,10 @@ class StockManagementTest {
         String locatorCode = stockManager.getLocatorCode(ISBN);
 
         // Verify that lookup(ISBN) was called 1 time for mockDBService.
-        verify(mockDBService, times(1)).lookup(ISBN);
+        verify(mockDBService).lookup(ISBN);
 
         // Verify that the lookup(ISBN) was not called on the mockWebService.
-        verify(mockWebService, times(0)).lookup(anyString());
+        verify(mockWebService, never()).lookup(anyString());
     }
 
     @Test
@@ -57,10 +57,10 @@ class StockManagementTest {
         String locatorCode = stockManager.getLocatorCode(ISBN);
 
         // Verify that lookup(ISBN) was called 1 times for mockDBService.
-        verify(mockDBService, times(1)).lookup(ISBN);
+        verify(mockDBService).lookup(ISBN);
 
         // Verify that the lookup(ISBN) was called 1 on the mockWebService.
-        verify(mockWebService, times(1)).lookup(ISBN);
+        verify(mockWebService).lookup(ISBN);
     }
 
 }
