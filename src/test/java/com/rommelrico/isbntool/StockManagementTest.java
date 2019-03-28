@@ -22,7 +22,18 @@ class StockManagementTest {
 
     @Test
     void databaseIsUsedIfDataIsPresent() {
-        fail();
+        ExternalISBNDataService mockDBService = mock(ExternalISBNDataService.class);
+        ExternalISBNDataService mockWebService = mock(ExternalISBNDataService.class);
+
+        when(mockDBService.lookup("0140177396")).thenReturn(new Book("0140177396", "abc", "abc"));
+
+        StockManager stockManager = new StockManager();
+        stockManager.setWebService(mockWebService);
+        stockManager.setDBService(mockDBService);
+
+        String ISBN = "0140177396"; // Of Mice and Men
+        String locatorCode = stockManager.getLocatorCode(ISBN);
+        assertEquals("7396J4", locatorCode); // Expected / Actual
     }
 
     @Test
