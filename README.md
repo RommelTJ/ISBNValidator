@@ -35,6 +35,8 @@ Practicing TDD with an ISBN Validator.
 * verify(myClass, atLeast(?)).myMethod(params);
 * verify(myClass, atMost(?)).myMethod(params);
 * verify(myClass, never(?)).myMethod(params);
+* params: anyString()
+* params: any(myClass.class)
 
 ## Contributing
 
