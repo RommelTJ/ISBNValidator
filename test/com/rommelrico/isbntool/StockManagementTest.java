@@ -19,4 +19,9 @@ class StockManagementTest {
         assertEquals("7396J4", locatorCode); // Expected / Actual
     }
 
+    @Test
+    void databaseIsUsedIfDataIsPresent() {
+        fail();
+    }
+
 }
