@@ -24,4 +24,9 @@ class StockManagementTest {
         fail();
     }
 
+    @Test
+    void webServiceIsUsedIfDataIsNotPresentInDatabase() {
+        fail();
+    }
+
 }
