@@ -27,6 +27,15 @@ Practicing TDD with an ISBN Validator.
 * assertThat(actual, Matcher) // e.g. assertThat(email, StringContains.containsString("@"));
 * fail
 
+### Mockito methods
+
+* mock(myClass.class);
+* when(mockClass.method()).thenReturn();
+* verify(myClass, times(?)).myMethod(params); // times(1) is default
+* verify(myClass, atLeast(?)).myMethod(params);
+* verify(myClass, atMost(?)).myMethod(params);
+* verify(myClass, never(?)).myMethod(params);
+
 ## Contributing
 
 If you wish to contribute to this repo, please read the [Contributing document](.github/CONTRIBUTING.md).
