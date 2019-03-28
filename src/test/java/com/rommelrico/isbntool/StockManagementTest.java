@@ -33,7 +33,9 @@ class StockManagementTest {
 
         String ISBN = "0140177396"; // Of Mice and Men
         String locatorCode = stockManager.getLocatorCode(ISBN);
-        assertEquals("7396J4", locatorCode); // Expected / Actual
+
+        // Verify that lookup(ISBN) was called 1 time for mockDBService.
+        verify(mockDBService, times(1)).lookup(ISBN);
     }
 
     @Test
