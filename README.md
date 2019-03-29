@@ -38,6 +38,14 @@ Practicing TDD with an ISBN Validator.
 * params: anyString()
 * params: any(myClass.class)
 
+### Stubs vs Mocks
+
+|               | Stubs          | Mocks |
+| ------------- |:--------------:| -----:|
+| Override external dependencies | ✓ | ✓ |
+| Used to test data              | ✓ | ✗ |
+| Used to test behavior          | ✗ | ✓ |
+
 ## Contributing
 
 If you wish to contribute to this repo, please read the [Contributing document](.github/CONTRIBUTING.md).
