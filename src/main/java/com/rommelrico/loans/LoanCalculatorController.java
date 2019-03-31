@@ -57,15 +57,15 @@ public class LoanCalculatorController {
 
 	// Setter methods used for testing only
 
-	public void setData(LoanRepository data) {
+	void setData(LoanRepository data) {
 		this.data = data;
 	}
 
-	public void setMailSender(JavaMailSender mailSender) {
+	void setMailSender(JavaMailSender mailSender) {
 		this.mailSender = mailSender;
 	}
 
-	public void setRestTemplate(RestTemplate restTemplate) {
+	void setRestTemplate(RestTemplate restTemplate) {
 		this.restTemplate = restTemplate;
 	}
 
