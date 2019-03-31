@@ -37,11 +37,11 @@ class RepaymentAmountTests {
         loanApplication.setTermInMonths(12);
         loanApplication.setPrincipal(1200);
         doReturn(new BigDecimal(10)).when(loanApplication).getInterestRate();
-        // Expected Repayment = 100
+        // Expected Repayment = 110
 
         controller.processNewLoanApplication(loanApplication);
 
-        assertEquals(new BigDecimal(100), loanApplication.getRepayment());
+        assertEquals(new BigDecimal(110), loanApplication.getRepayment());
     }
 
     @Test
