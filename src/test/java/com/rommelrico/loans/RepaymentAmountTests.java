@@ -5,5 +5,11 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class RepaymentAmountTests {
+class RepaymentAmountTests {
+
+    @Test
+    void test() {
+        fail();
+    }
+
 }
