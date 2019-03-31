@@ -2,6 +2,8 @@ package com.rommelrico.loans;
 
 import org.junit.jupiter.api.*;
 import org.mockito.*;
+import org.springframework.mail.javamail.*;
+import org.springframework.web.client.*;
 
 import java.math.*;
 
@@ -13,6 +15,25 @@ class RepaymentAmountTests {
     @Spy
     LoanApplication loanApplication;
 
+    private LoanCalculatorController controller;
+    private LoanRepository data;
+    private JavaMailSender mailSender;
+    private RestTemplate restTemplate;
+
+    @BeforeEach
+    void setup() {
+        data = mock(LoanRepository.class);
+        mailSender = mock(JavaMailSender.class);
+        restTemplate = mock(RestTemplate.class);
+
+        controller = new LoanCalculatorController();
+        controller.setData(data);
+        controller.setMailSender(mailSender);
+        controller.setRestTemplate(restTemplate);
+
+        when(data.save(loanApplication)).thenReturn(null);
+    }
+
     @Test
     void test1YearLoanWholeDollars() {
         loanApplication = spy(new LoanApplication());
@@ -21,10 +42,9 @@ class RepaymentAmountTests {
         doReturn(new BigDecimal(10)).when(loanApplication).getInterestRate();
         // Expected Repayment = 100
 
-        LoanCalculatorController controller = new LoanCalculatorController();
         controller.processNewLoanApplication(loanApplication);
 
-        assertEquals(new BigDecimal(100), loanApplication.getRepayment());
+        assertEquals(new BigDecimal(110), loanApplication.getRepayment());
     }
 
     @Test
@@ -35,7 +55,6 @@ class RepaymentAmountTests {
         doReturn(new BigDecimal(10)).when(loanApplication).getInterestRate();
         // Expected Repayment = 60
 
-        LoanCalculatorController controller = new LoanCalculatorController();
         controller.processNewLoanApplication(loanApplication);
 
         assertEquals(new BigDecimal(60), loanApplication.getRepayment());
@@ -49,7 +68,6 @@ class RepaymentAmountTests {
         doReturn(new BigDecimal(6.5)).when(loanApplication).getInterestRate();
         // Expected Repayment = 111
 
-        LoanCalculatorController controller = new LoanCalculatorController();
         controller.processNewLoanApplication(loanApplication);
 
         assertEquals(new BigDecimal(111), loanApplication.getRepayment());
