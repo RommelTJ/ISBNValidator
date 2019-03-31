@@ -2,6 +2,8 @@ package com.rommelrico.loans;
 
 import org.junit.jupiter.api.*;
 
+import java.math.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -15,7 +17,10 @@ class RepaymentAmountTests {
         // Interest rate = 10%
         // Expected Repayment = 100
 
-        fail();
+        LoanCalculatorController controller = new LoanCalculatorController();
+        controller.processNewLoanApplication(loanApplication);
+
+        assertEquals(new BigDecimal(110), loanApplication.getRepayment());
     }
 
     @Test
