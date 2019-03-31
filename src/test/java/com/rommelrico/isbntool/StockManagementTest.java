@@ -8,14 +8,17 @@ class StockManagementTest {
 
     @Test
     void testCanGetCorrectLocatorCode() {
-        ExternalISBNDataService testWebService = ISBN -> new Book(ISBN, "Of Mice And Men", "John Steinbeck");
-        ExternalISBNDataService testDBService = ISBN -> null;
+        ExternalISBNDataService testWebService = mock(ExternalISBNDataService.class);
+        ExternalISBNDataService testDBService = mock(ExternalISBNDataService.class);
+
+        String ISBN = "0140177396"; // Of Mice and Men
+        when(testWebService.lookup(ISBN)).thenReturn(new Book(ISBN, "Of Mice And Men", "John Steinbeck"));
+        when(testDBService.lookup(ISBN)).thenReturn(null);
 
         StockManager stockManager = new StockManager();
         stockManager.setWebService(testWebService);
         stockManager.setDBService(testDBService);
 
-        String ISBN = "0140177396"; // Of Mice and Men
         String locatorCode = stockManager.getLocatorCode(ISBN);
         assertEquals("7396J4", locatorCode); // Expected / Actual
     }
