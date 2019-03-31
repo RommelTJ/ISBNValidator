@@ -7,8 +7,8 @@ import static org.mockito.Mockito.*;
 
 class StockManagementTest {
 
-    ExternalISBNDataService mockDBService;
-    ExternalISBNDataService mockWebService;
+    private ExternalISBNDataService mockDBService;
+    private ExternalISBNDataService mockWebService;
 
     @BeforeEach
     void setup() {
