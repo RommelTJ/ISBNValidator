@@ -8,7 +8,17 @@ import static org.mockito.Mockito.*;
 class RepaymentAmountTests {
 
     @Test
-    void test() {
+    void test1YearLoanWholeDollars() {
+        fail();
+    }
+
+    @Test
+    void test2YearLoanWholeDollars() {
+        fail();
+    }
+
+    @Test
+    void test5YearLoanWithRounding() {
         fail();
     }
 
