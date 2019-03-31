@@ -29,24 +29,30 @@ class RepaymentAmountTests {
 
     @Test
     void test2YearLoanWholeDollars() {
-        LoanApplication loanApplication = new LoanApplication();
+        loanApplication = spy(new LoanApplication());
         loanApplication.setTermInMonths(24);
         loanApplication.setPrincipal(1200);
-        // Interest rate = 10%
+        doReturn(new BigDecimal(10)).when(loanApplication).getInterestRate();
         // Expected Repayment = 60
 
-        fail();
+        LoanCalculatorController controller = new LoanCalculatorController();
+        controller.processNewLoanApplication(loanApplication);
+
+        assertEquals(new BigDecimal(60), loanApplication.getRepayment());
     }
 
     @Test
     void test5YearLoanWithRounding() {
-        LoanApplication loanApplication = new LoanApplication();
+        loanApplication = spy(new LoanApplication());
         loanApplication.setTermInMonths(60);
         loanApplication.setPrincipal(5000);
-        // Interest rate = 6.5%
+        doReturn(new BigDecimal(6.5)).when(loanApplication).getInterestRate();
         // Expected Repayment = 111
 
-        fail();
+        LoanCalculatorController controller = new LoanCalculatorController();
+        controller.processNewLoanApplication(loanApplication);
+
+        assertEquals(new BigDecimal(111), loanApplication.getRepayment());
     }
 
 }
