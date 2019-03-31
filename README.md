@@ -37,6 +37,8 @@ Practicing TDD with an ISBN Validator.
 * verify(myClass, never(?)).myMethod(params);
 * params: anyString()
 * params: any(myClass.class)
+* doReturn(return_value).when(spy_object).method_call(params);
+
 
 ### Stubs vs Mocks
 
