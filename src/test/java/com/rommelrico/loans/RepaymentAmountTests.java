@@ -16,15 +16,12 @@ class RepaymentAmountTests {
     LoanApplication loanApplication;
 
     private LoanCalculatorController controller;
-    private LoanRepository data;
-    private JavaMailSender mailSender;
-    private RestTemplate restTemplate;
 
     @BeforeEach
     void setup() {
-        data = mock(LoanRepository.class);
-        mailSender = mock(JavaMailSender.class);
-        restTemplate = mock(RestTemplate.class);
+        LoanRepository data = mock(LoanRepository.class);
+        JavaMailSender mailSender = mock(JavaMailSender.class);
+        RestTemplate restTemplate = mock(RestTemplate.class);
 
         controller = new LoanCalculatorController();
         controller.setData(data);
@@ -44,7 +41,7 @@ class RepaymentAmountTests {
 
         controller.processNewLoanApplication(loanApplication);
 
-        assertEquals(new BigDecimal(110), loanApplication.getRepayment());
+        assertEquals(new BigDecimal(100), loanApplication.getRepayment());
     }
 
     @Test
